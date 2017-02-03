@@ -27,7 +27,7 @@ public class ClientSrc : MonoBehaviour
         }
     }
 
-    private bool ConnectToServer(string host, int port)
+    public bool ConnectToServer(string host, int port)
     {
         if (socketReady)
             return false;

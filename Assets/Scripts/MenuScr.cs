@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuScr : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class MenuScr : MonoBehaviour
     public GameObject mainMenu;
     public GameObject serverMenu;
     public GameObject connectMenu;
+
+    public GameObject serverPrefab;
+    public GameObject clientPrefab;
 
     void Start () {
         Instance = this.gameObject;
@@ -26,13 +31,39 @@ public class MenuScr : MonoBehaviour
 
     public void HostButton()
     {
+        try
+        {
+            ServerScr s = Instantiate(serverPrefab).GetComponent<ServerScr>();
+            s.Init();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+
         mainMenu.SetActive(false);
         serverMenu.SetActive(true);
     }
 
     public void ConnectToServerButton()
     {
+        string hostAddress = GameObject.Find("HostInput").GetComponent<InputField>().text;
 
+        if(hostAddress == "")
+        {
+            hostAddress = "127.0.0.1";
+        }
+
+        try
+        {
+            ClientSrc c = Instantiate(clientPrefab).GetComponent<ClientSrc>();
+            c.ConnectToServer(hostAddress, 6232);
+            connectMenu.SetActive(false);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     public void BackButton()
