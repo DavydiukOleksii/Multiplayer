@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5ECD35DC-CF75-E071-39DC-2ABB93196E69}</ProjectGuid>
+    <ProjectGuid>{CF7BA325-FEF0-9119-48CA-4F706D3AFA80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -78,10 +78,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ClientSrc.cs" />
-    <Compile Include="Assets\Scripts\MenuScr.cs" />
-    <Compile Include="Assets\Scripts\PlayerScr.cs" />
-    <Compile Include="Assets\Scripts\ServerScr.cs" />
+    <Compile Include="Assets\Scripts\GameHelper.cs" />
+    <Compile Include="Assets\Scripts\PlayerHelper.cs" />
+    <Compile Include="Assets\Scripts\PlayerSrc.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
